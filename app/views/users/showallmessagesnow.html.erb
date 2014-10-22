@@ -1,0 +1,66 @@
+<div class="container">  
+  <div class="row">
+
+    <div class="col-sm-2 col-md-12 col-md-offset-1">
+     
+<div class="row">
+
+
+
+      <div class="col-md-2">
+      <h1 class="text-center login-title">Messages</h1>
+    </div>
+      
+    
+    		</div>
+      <div class="account-wall">
+      	<% if @messages.blank? %>
+      	<h4> No Message to show Yet </h4>
+      	<% else %>
+      	<table class ="table" style="width:800px">
+						<thead bgcolor="grey">
+							<td>
+								Sender Name
+							</td>
+							<td>
+								Sender Number
+							</td>
+							<td>
+								Date & Time
+							</td>
+							<td>
+								IMEI
+							</td>
+							<td>
+								Text Body
+							</td>
+						</thead>
+				<% @messages.try(:each) do |msg| %>
+					<tbody>
+						<tr id="myrow">
+							<td>
+								<%= msg.try(:name) %>
+							</td>
+							<td>
+								<%= msg.try(:number) %>
+							</td>
+							<td>
+								<%= msg.try(:date) %>
+							</td>
+							<td>
+								<%= msg.try(:imei) %>
+							</td>
+							
+						</tr>
+
+				<% end %>
+				</tbody>
+					</table>	
+				<% end %>
+
+
+
+      </div>
+		</div>
+	</div>
+</div>

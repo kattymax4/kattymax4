@@ -1,0 +1,85 @@
+<div class="container">  
+  <div class="row">
+
+    <div class="col-sm-2 col-md-12 col-md-offset-1">
+     
+<div class="row">
+
+
+
+      <div class="col-md-2">
+      <h1 class="text-center login-title">Messages</h1>
+    </div>
+      <%= form_for :imeilist, :url => {:action => :changed}, method: :get do |f| %>
+    		<div class="col-md-5 input-group" style="padding-top:25px;max-width:200px;margin-left:15px;">
+      	<%=select_tag :imei, options_for_select(@t.collect{ |u| [u.imei] }),:prompt => 'All', class: 'form-control' %>
+    		<span class="input-group-btn">
+			    <button class="btn" type="submit"><span class="glyphicon glyphicon-search">
+    			</span></button>
+			  </span>
+			  <!-- <span class="input-group-addon">
+    			<span class="glyphicon glyphicon-search">
+    			</span>
+    		</span> -->
+    </div>
+    <% end %>
+    		</div>
+      <div class="account-wall">
+      	<% if params[:imei] != ''%>
+      		<h4> Now Showing <%= params[:imei] %> </h4>
+      	<% else %>
+      		<h4> Now Showing All Messages </h4>
+      	<% end %>
+      	<% if @messages.blank? %>
+      	<h4> No Message to show Yet </h4>
+      	<% else %>
+      	<table class ="table" style="width:800px">
+						<thead bgcolor="grey">
+							<td>
+								Sender Name
+							</td>
+							<td>
+								Sender Number
+							</td>
+							<td>
+								Date & Time
+							</td>
+							<td>
+								IMEI
+							</td>
+							<td>
+								Text Body
+							</td>
+						</thead>
+				<% @messages.try(:each) do |msg| %>
+					<tbody>
+						<tr id="myrow">
+							<td>
+								<%= msg.try(:name) %>
+							</td>
+							<td>
+								<%= msg.try(:number) %>
+							</td>
+							<td>
+								<%= msg.try(:date) %>
+							</td>
+							<td>
+								<%= msg.try(:imei) %>
+							</td>
+							<td>
+								<%= truncate(msg.try(:body), :length => 15) %>
+								<%= link_to "(Continued)", message_path(msg) %> 
+							</td>
+						</tr>
+
+				<% end %>
+				</tbody>
+					</table>	
+				<% end %>
+
+
+
+      </div>
+		</div>
+	</div>
+</div>

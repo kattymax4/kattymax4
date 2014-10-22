@@ -1,0 +1,32 @@
+<div class="container">  
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <h1 class="text-center login-title">My Profile</h1><br><br>
+      <div class="account-wall">
+        <table class ="table">
+          <tr >
+            <td style = "border:none"> <strong>Name</strong> </td>
+            <td style = "border:none"> <%= @user.name %> </td>
+          </tr>
+          <tr>
+            <td style = "border:none"> <strong>Email Address</strong> </td>
+            <td style = "border:none"> <%= @user.email %> </td>
+          </tr>
+          <tr>
+            <td style = "border:none"> <strong>CNIC</strong> </td>
+            <td style = "border:none"> <%= @user.cnic %> </td>
+          </tr>
+          <tr>
+            <td style = "border:none"> <strong>Address</strong> </td>
+            <td style = "border:none"> <%= @user.address %> </td>
+          </tr>
+           <tr>
+            <td style = "border:none"> </td>
+            <td style = "border:none">  <%= link_to "Update", edit_user_path(current_user), class: "btn btn-primary btn-lg active" %> </td>
+          </tr>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+</div>

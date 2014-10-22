@@ -1,0 +1,23 @@
+<div class="container">  
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <h1 class="text-center login-title">Message</h1><br><br>
+      <div class="account-wall">
+
+				 <dl class="dl-horizontal">
+				  <dt><strong>Sender Name</strong></dt>
+				  <dd><%= @message.name %></dd>
+				  <dt><strong>Sender Number:</strong></dt>
+				  <dd><%= @message.number %></dd>
+				  <dt><strong>Date</strong></dt>
+				  <dd><%= @message.date %></dd>
+				  <dt><strong>IMEI:</strong></dt>
+				  <dd><%= @message.imei %></dd>
+				  <dt><strong>Message Body:</strong></dt>
+				  <dd><%= @message.body %></dd>
+				</dl>
+				
+       </div>
+		</div>
+	</div>
+</div>
