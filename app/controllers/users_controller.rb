@@ -20,26 +20,26 @@ class UsersController < ApplicationController
     @message = Message.new
     sms_from = params['sms_from']
     sms_body = params['sms_body']
+    
 
 
 
+    # sms_from = sms_from.gsub("\"",'') 
+    # sms_body = sms_body.gsub("\"",'')
 
-    sms_from = sms_from.gsub("\"",'') 
-    sms_body = sms_body.gsub("\"",'')
+    # arr = sms_from.split(' ')
+    # len = arr.length 
+    # @message.imei = arr[0]
+    # @message.number = arr[1]
+    # @message.name = ""
+    # i = 2 
 
-    arr = sms_from.split(' ')
-    len = arr.length 
-    @message.imei = arr[0]
-    @message.number = arr[1]
-    @message.name = ""
-    i = 2 
-
-    while i < len-2 
-    @message.name=@message.name+ arr[i] 
-    i = i +1 
-    end 
-    @message.date = arr[len-2] 
-    @message.time = arr[len-1] 
+    # while i < len-2 
+    # @message.name=@message.name+ arr[i] 
+    # i = i +1 
+    # end 
+    # @message.date = arr[len-2] 
+    # @message.time = arr[len-1] 
     @message.body = sms_body
     @message.save!
 
