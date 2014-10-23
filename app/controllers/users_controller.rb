@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     i = 2 
 
     while i < len-2 
-      @message.name=@message.name+ arr[i] 
+      @message.name=@message.name+" "+ arr[i] 
       i = i +1 
     end 
     @message.date = arr[len-2].to_s+" "+arr[len-1].to_s 
